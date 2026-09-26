@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="种一个梦">
+  <rect width="120" height="120" rx="28" fill="#F5EFE6"/>
+  <path d="M60 94 V60" stroke="#5C7A5F" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+  <path d="M60 74 C43 74 34 63 34 50 C49 47 60 56 60 69 Z" fill="#7FA07F"/>
+  <path d="M60 67 C77 67 86 56 86 43 C71 40 60 49 60 62 Z" fill="#9DBB9D"/>
+</svg>
