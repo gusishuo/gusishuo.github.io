@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>种一个梦</title>
+    <link>https://gusishuo.github.io/</link>
+    <description>写作 · 把知识做成产品 · 公开构建</description>
+    <language>zh-CN</language>
+
+    <item>
+      <title>玩具制造商与按摩师：别把自己困在时间里</title>
+      <link>https://gusishuo.github.io/posts/no-income-ceiling.html</link>
+      <guid>https://gusishuo.github.io/posts/no-income-ceiling.html</guid>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 +0800</pubDate>
+      <description>出名之后，一个人能再生产一百万个，另一个人只能再按一百万次。差别不在努力，在结构。</description>
+    </item>
+
+    <item>
+      <title>赠送秘密，出售执行</title>
+      <link>https://gusishuo.github.io/posts/give-away-secrets.html</link>
+      <guid>https://gusishuo.github.io/posts/give-away-secrets.html</guid>
+      <pubDate>Mon, 21 Sep 2026 00:00:00 +0800</pubDate>
+      <description>让你的免费内容比别人的付费内容还好。</description>
+    </item>
+
+    <item>
+      <title>把过程露出来</title>
+      <link>https://gusishuo.github.io/posts/build-in-public.html</link>
+      <guid>https://gusishuo.github.io/posts/build-in-public.html</guid>
+      <pubDate>Sun, 20 Sep 2026 00:00:00 +0800</pubDate>
+      <description>既然 AI 能伪造一切成品，那唯一还值钱的就只剩过程了。</description>
+    </item>
+
+  </channel>
+</rss>

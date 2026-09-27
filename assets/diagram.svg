@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" width="640" height="200" role="img" aria-label="制造商的产量可放大，按摩师的时间不可放大">
+  <rect width="640" height="200" rx="8" fill="#F3F0E9"/>
+  <text x="28" y="52" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="15" fill="#2E2B26">玩具制造商</text>
+  <rect x="28" y="66" width="560" height="26" rx="4" fill="#C96442" opacity="0.85"/>
+  <text x="28" y="132" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="15" fill="#2E2B26">按摩师</text>
+  <rect x="28" y="146" width="90" height="26" rx="4" fill="#7C7367" opacity="0.75"/>
+  <text x="132" y="164" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#7C7367">受限于自己的时间</text>
+</svg>

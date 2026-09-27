@@ -1,0 +1,160 @@
+/* =========================================================
+   站点样式 · 想改外观，只改下面 :root 里的变量就够
+   参考：Claude/Anthropic 的暖色体系 + Bear Blog 的排版骨架
+   ========================================================= */
+
+:root{
+  /* —— 颜色 —— */
+  --bg:        #FAF9F5;   /* 羊皮纸奶油底 */
+  --surface:   #F3F0E9;   /* 稍深一点的暖色表面 */
+  --ink:       #2E2B26;   /* 正文墨色 */
+  --muted:     #7C7367;   /* 次要文字（暖灰，不是蓝灰） */
+  --accent:    #C96442;   /* 赤陶色 */
+  --line:      #E6E1D7;   /* 极淡的暖色分隔线 */
+
+  /* —— 字体 —— */
+  --font: "LXGW WenKai", "LXGW WenKai Screen", "PingFang SC",
+          "Hiragino Sans GB", "Microsoft YaHei", serif;
+
+  /* —— 尺寸 —— */
+  --measure: 640px;       /* 正文行宽，约 65 个字符 */
+  --step: 8px;            /* 间距基准 */
+}
+
+/* 深色模式：跟随系统，变量整体换一组 */
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:      #1F1E1B;
+    --surface: #26241F;
+    --ink:     #EDE9E1;
+    --muted:   #9C948A;
+    --accent:  #D89B7A;
+    --line:    #35322C;
+  }
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font);
+  font-size:17px;
+  line-height:1.85;
+  letter-spacing:.01em;
+  /* 深色模式下切页面不闪白 */
+  color-scheme: light dark;
+}
+
+/* —— 布局 —— */
+.wrap{max-width:var(--measure);margin:0 auto;padding:72px 24px 96px}
+
+/* —— 页头 —— */
+.masthead{margin-bottom:calc(var(--step) * 7)}
+.masthead h1{
+  font-size:24px;font-weight:600;margin:0;letter-spacing:.02em;
+}
+.masthead .tagline{color:var(--muted);font-size:15px;margin:var(--step) 0 0}
+
+/* —— 导航 —— */
+nav{margin-top:calc(var(--step) * 3);display:flex;gap:calc(var(--step) * 3);flex-wrap:wrap}
+nav a{
+  font-size:14px;color:var(--muted);
+  border-bottom:1px solid transparent;
+}
+nav a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+nav a[aria-current="page"]{color:var(--ink)}
+
+/* —— 文章列表 —— */
+.postlist{list-style:none;padding:0;margin:0}
+.postlist li{
+  padding:calc(var(--step) * 3) 0;
+  border-top:1px solid var(--line);
+}
+.postlist li:last-child{border-bottom:1px solid var(--line)}
+.postlist h2{font-size:19px;font-weight:600;margin:0}
+.postlist h2 a{color:var(--ink);border-bottom:none}
+.postlist h2 a:hover{color:var(--accent)}
+.meta{
+  color:var(--muted);font-size:13px;
+  margin:var(--step) 0 0;letter-spacing:.02em;
+}
+.summary{margin:var(--step) 0 0;font-size:15px;color:var(--muted)}
+
+/* —— 文章正文 —— */
+article h1{font-size:26px;font-weight:600;line-height:1.4;margin:0 0 calc(var(--step) * 2)}
+article .meta{margin-bottom:calc(var(--step) * 5)}
+article h2{font-size:20px;font-weight:600;margin:calc(var(--step) * 6) 0 calc(var(--step) * 2)}
+article h3{font-size:17px;font-weight:600;margin:calc(var(--step) * 4) 0 var(--step)}
+article p{margin:0 0 calc(var(--step) * 3)}
+article ul,article ol{margin:0 0 calc(var(--step) * 3);padding-left:1.4em}
+article li{margin-bottom:var(--step)}
+
+article blockquote{
+  margin:calc(var(--step) * 4) 0;
+  padding-left:calc(var(--step) * 2);
+  border-left:2px solid var(--accent);
+  color:var(--muted);
+}
+article blockquote p{margin:0}
+
+code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:.88em;background:var(--surface);
+  padding:.15em .4em;border-radius:3px;
+}
+pre{
+  background:var(--surface);padding:calc(var(--step) * 2);
+  overflow-x:auto;border-radius:4px;line-height:1.6;
+}
+pre code{background:none;padding:0}
+
+figure{margin:calc(var(--step) * 4) 0}
+figure img{max-width:100%;height:auto;display:block;border-radius:4px}
+figcaption{color:var(--muted);font-size:13px;margin-top:var(--step);text-align:center}
+
+hr{border:0;border-top:1px solid var(--line);margin:calc(var(--step) * 6) 0}
+
+/* —— 上一篇 / 下一篇 —— */
+.pager{
+  display:flex;justify-content:space-between;gap:var(--step);
+  margin-top:calc(var(--step) * 8);padding-top:calc(var(--step) * 3);
+  border-top:1px solid var(--line);font-size:14px;
+}
+.pager a{color:var(--muted)}
+.pager a:hover{color:var(--accent)}
+
+/* —— 归档 —— */
+.year{margin:calc(var(--step) * 6) 0 0;color:var(--muted);font-size:14px;letter-spacing:.1em}
+.year + ul{list-style:none;padding:0;margin:var(--step) 0 0}
+.year + ul li{padding:var(--step) 0;border-top:1px solid var(--line)}
+
+/* —— 链接 —— */
+a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* —— 键盘焦点可见（无障碍） —— */
+a:focus-visible,button:focus-visible{
+  outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;
+}
+
+/* —— 页脚 —— */
+footer{
+  margin-top:calc(var(--step) * 10);padding-top:calc(var(--step) * 3);
+  border-top:1px solid var(--line);
+  color:var(--muted);font-size:13px;line-height:2;
+}
+
+/* —— 手机 —— */
+@media (max-width:600px){
+  .wrap{padding:48px 20px 72px}
+  body{font-size:16px}
+  article h1{font-size:23px}
+  .postlist h2{font-size:18px}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important;animation:none !important}
+}
