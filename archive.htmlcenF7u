@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>没找到 · 种一个梦</title>
+<title>归档 · 种一个梦</title>
+<meta name="description" content="全部文章，按年份分组。">
 <meta name="theme-color" content="#FAF9F5">
 <link rel="icon" href="assets/favicon.svg">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css">
@@ -17,18 +18,31 @@
   <p class="tagline">写作 · 把知识做成产品 · 公开构建</p>
   <nav>
     <a href="index.html">首页</a>
-    <a href="archive.html">归档</a>
+    <a href="archive.html" aria-current="page">归档</a>
     <a href="about.html">关于</a>
-    <a href="shop.html">商店</a>
     <a href="feed.xml">RSS</a>
   </nav>
 </header>
 
 <main>
 <article>
-  <h1>这一页不存在</h1>
-  <p>地址可能写错了，或者这篇文章已经搬走了。</p>
-  <p><a href="index.html">回首页</a> · <a href="archive.html">看全部文章</a></p>
+  <h1>归档</h1>
+
+  <p class="year">2026</p>
+  <ul>
+    <li>
+      <a href="posts/no-income-ceiling.html">玩具制造商与按摩师：别把自己困在时间里</a>
+      <span class="meta"> · 09-22</span>
+    </li>
+    <li>
+      <a href="posts/give-away-secrets.html">赠送秘密，出售执行</a>
+      <span class="meta"> · 09-21</span>
+    </li>
+    <li>
+      <a href="posts/build-in-public.html">把过程露出来</a>
+      <span class="meta"> · 09-20</span>
+    </li>
+  </ul>
 </article>
 </main>
 
