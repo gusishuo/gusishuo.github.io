@@ -52,6 +52,34 @@ const PRODUCTS = [
     price: "¥ 59",
     image: "assets/prints/print-06.svg",
     link: "#"
+  },
+  {
+    title: "山隐",
+    by: "Gus",
+    price: "¥ 59",
+    image: "assets/prints/print-07.jpg",
+    link: "#"
+  },
+  {
+    title: "山里人",
+    by: "Gus",
+    price: "¥ 59",
+    image: "assets/prints/print-08.jpg",
+    link: "#"
+  },
+  {
+    title: "有点人情世故",
+    by: "Gus",
+    price: "¥ 59",
+    image: "assets/prints/print-09.jpg",
+    link: "#"
+  },
+  {
+    title: "晚风",
+    by: "Gus",
+    price: "¥ 59",
+    image: "assets/prints/print-10.jpg",
+    link: "#"
   }
 ];
 
