@@ -5,9 +5,11 @@
    by    : 作者署名
    price : 价格，随你怎么写，比如 "¥ 59" 或 "¥ 59 ¥ 79"
    image : 图片路径，放在 assets/prints/ 里，写相对路径
-   link  : 微信小店的商品链接（在小店里点"分享"复制过来）
-           手机微信里点卡片会直接拉起小店；
-           电脑浏览器可能打不开，所以页面顶部放了二维码。
+   link  : 商品链接，两种都行：
+           ① 微信小店"分享"复制的口令，如 "#微信小店://店名/xxxx"
+           ② 普通网址 https://...
+           手机微信里点卡片会拉起小店；电脑浏览器打不开，
+           所以页面底部放了二维码。
    ========================================================= */
 
 const PRODUCTS = [
@@ -58,7 +60,7 @@ const PRODUCTS = [
     by: "Gus",
     price: "¥ 59",
     image: "assets/prints/print-07.jpg",
-    link: "#"
+    link: "#微信小店://MOT设计工作室/4Wq2yggJadluRUI"
   },
   {
     title: "山里人",
@@ -87,12 +89,24 @@ const PRODUCTS = [
 
 const liked = new Set();
 
+/* 链接两种写法都支持：
+   - 普通网址（https://...）→ 直接当 <a href> 用
+   - 微信小店口令（#微信小店://...，从小店"分享"复制来的）
+     → 点的时候用 location.href 拉起，微信里直接进店；
+       普通浏览器拉不起来，就靠页面底部二维码兜底 */
+function isWxLink(link) { return /微信小店:\/\//.test(link); }
+function rawLink(link) { return link.replace(/^#+/, ""); }
+
 function render() {
   const grid = document.getElementById("grid");
   if (!grid) return;
-  grid.innerHTML = PRODUCTS.map((p, i) => `
+  grid.innerHTML = PRODUCTS.map((p, i) => {
+    const wx = isWxLink(p.link);
+    const href = wx ? "javascript:void(0)" : p.link;
+    const dataAttr = wx ? ` data-link="${rawLink(p.link)}"` : "";
+    return `
     <li class="pcard">
-      <a href="${p.link}" target="_blank" rel="noopener">
+      <a href="${href}"${dataAttr} ${wx ? "" : 'target="_blank" rel="noopener"'}>
         <div class="frame"><div class="mat"><img src="${p.image}" alt="${p.title}" loading="lazy"></div></div>
       </a>
       <div class="row">
@@ -105,14 +119,22 @@ function render() {
           <button class="pbtn heart ${liked.has(i) ? "liked" : ""}"
                   data-i="${i}" aria-label="喜欢 ${p.title}"
                   aria-pressed="${liked.has(i)}">♥</button>
-          <a class="pbtn" href="${p.link}" target="_blank" rel="noopener"
+          <a class="pbtn" href="${href}"${dataAttr}
+             ${wx ? "" : 'target="_blank" rel="noopener"'}
              aria-label="购买 ${p.title}">+</a>
         </div>
       </div>
-    </li>`).join("");
+    </li>`;
+  }).join("");
 }
 
 document.addEventListener("click", (e) => {
+  const wxa = e.target.closest("a[data-link]");
+  if (wxa) {
+    e.preventDefault();
+    window.location.href = wxa.dataset.link;
+    return;
+  }
   const b = e.target.closest(".heart");
   if (!b) return;
   const i = b.dataset.i;
