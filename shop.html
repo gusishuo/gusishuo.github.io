@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>商店 · 种一个梦</title>
-<meta name="description" content="T 恤印花作品，点击前往微信小店购买。">
+<title>画廊 · 种一个梦</title>
+<meta name="description" content="T 恤印花作品画廊，点击前往微信小店购买。">
 <meta name="theme-color" content="#FAF9F5">
 <link rel="icon" href="assets/favicon.svg">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css">
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-<div class="wrap">
+<div class="wrap wrap--wide">
 
 <header class="masthead">
   <h1>种一个梦</h1>
@@ -27,18 +27,19 @@
 
 <main>
 <article>
-  <h1>T 恤印花</h1>
-  <p class="note" style="color:var(--muted);font-size:14px">
-    点作品图或 <strong>+</strong> 去微信小店购买。电脑上打不开的话，用微信扫下面这个码。
+  <h1>画廊</h1>
+  <p class="gallery-intro">
+    我做过的 T 恤印花，装裱起来挂在这里。每一幅都可以真的穿在身上——
+    点作品图或右下角的 <strong>+</strong>，去微信小店下单。
   </p>
+
+  <ul class="shopgrid" id="grid"></ul>
 
   <div class="qrcode">
     <img src="assets/wechat-qr.png" alt="微信小店二维码"
          onerror="this.parentNode.classList.add('empty');this.remove()">
     <p class="qrcap">微信扫码进店</p>
   </div>
-
-  <ul class="shopgrid" id="grid"></ul>
 </article>
 </main>
 

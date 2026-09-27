@@ -38,6 +38,20 @@ const PRODUCTS = [
     price: "¥ 59",
     image: "assets/prints/print-04.svg",
     link: "#"
+  },
+  {
+    title: "远山（占位）",
+    by: "Gus",
+    price: "¥ 59",
+    image: "assets/prints/print-05.svg",
+    link: "#"
+  },
+  {
+    title: "四格（占位）",
+    by: "Gus",
+    price: "¥ 59",
+    image: "assets/prints/print-06.svg",
+    link: "#"
   }
 ];
 

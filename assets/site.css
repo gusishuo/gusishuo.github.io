@@ -50,6 +50,8 @@ body{
 
 /* —— 布局 —— */
 .wrap{max-width:var(--measure);margin:0 auto;padding:72px 24px 96px}
+/* 画廊页用宽版心，给三列画框留足呼吸 */
+.wrap--wide{max-width:1040px}
 
 /* —— 页头 —— */
 .masthead{margin-bottom:calc(var(--step) * 7)}
@@ -160,50 +162,68 @@ footer{
 }
 
 /* =========================================================
-   商店页 · 装裱画网格
+   商店页 · 画廊式装裱网格
    ========================================================= */
+
+.gallery-intro{
+  color:var(--muted);font-size:15px;line-height:1.8;
+  margin:0 0 calc(var(--step) * 6);
+}
+.gallery-intro strong{color:var(--ink);font-weight:500}
 
 /* 二维码位：assets/wechat-qr.png 放进去就显示，没有就显示空框 */
 .qrcode{
-  margin:calc(var(--step) * 3) 0 calc(var(--step) * 5);
-  width:132px;text-align:center;
+  margin:calc(var(--step) * 12) auto calc(var(--step) * 4);
+  width:104px;text-align:center;
 }
-.qrcode img{width:132px;height:132px;display:block;border-radius:4px}
+.qrcode img{width:104px;height:104px;display:block;border-radius:3px}
 .qrcode.empty{
-  border:1px dashed var(--line);border-radius:4px;
-  height:132px;display:flex;align-items:center;justify-content:center;
+  border:1px dashed var(--line);border-radius:3px;
+  height:104px;display:flex;align-items:center;justify-content:center;
 }
-.qrcode.empty::after{content:"二维码待放";color:var(--muted);font-size:13px}
+.qrcode.empty::after{content:"二维码待放";color:var(--muted);font-size:12px}
 .qrcap{color:var(--muted);font-size:12px;margin:var(--step) 0 0}
 
-/* 网格：宽 4 列 → 中 3 列 → 手机 2 列 */
+/* 网格：宽 3 列（画廊要留白足）→ 中 2 列 → 手机 1 列 */
 .shopgrid{
   list-style:none;padding:0;margin:0;
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:calc(var(--step) * 5) calc(var(--step) * 3);
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:calc(var(--step) * 10) calc(var(--step) * 5);
 }
-@media (max-width:900px){.shopgrid{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:600px){.shopgrid{grid-template-columns:repeat(2,1fr);gap:calc(var(--step) * 4) var(--step)}}
+@media (max-width:900px){
+  .shopgrid{grid-template-columns:repeat(2,1fr);gap:calc(var(--step) * 7) calc(var(--step) * 4)}
+}
+@media (max-width:520px){
+  .shopgrid{grid-template-columns:1fr;gap:calc(var(--step) * 7)}
+}
 
-/* 黑框 + 白卡纸 + 印花 */
-.frame{background:#141311;padding:10px;border-radius:2px}
-.mat{background:#FFFFFF;padding:16%}
+/* 黑框 + 白卡纸 + 印花：框更细，图更大 */
+.frame{
+  background:#141311;padding:6px;border-radius:2px;
+  transition:box-shadow .2s ease,transform .2s ease;
+}
+.mat{background:#FFFFFF;padding:12%}
 .frame img{display:block;width:100%;height:auto}
 .pcard a{border-bottom:none}
-.pcard a:hover .frame{box-shadow:0 2px 10px rgba(0,0,0,.18)}
-.pcard .frame{transition:box-shadow .15s ease}
+.pcard:hover .frame{box-shadow:0 8px 22px rgba(0,0,0,.16);transform:translateY(-3px)}
 
-/* 作品信息行 */
-.pcard .row{display:flex;justify-content:space-between;align-items:flex-start;margin-top:var(--step)}
-.pcard h3{font-size:15px;font-weight:600;margin:0;line-height:1.5}
-.pcard .by{color:var(--muted);font-size:13px;margin:2px 0 0}
-.pcard .price{font-size:14px;margin:calc(var(--step)) 0 0}
-.pbtns{display:flex;gap:var(--step);flex-shrink:0}
+/* 作品信息：克制，只留名字和价格 */
+.pcard .row{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  margin-top:calc(var(--step) * 2);
+}
+.pcard h3{font-size:14px;font-weight:500;margin:0;line-height:1.6}
+.pcard .by{color:var(--muted);font-size:12px;margin:2px 0 0}
+.pcard .price{color:var(--muted);font-size:13px;margin:6px 0 0;letter-spacing:.02em}
+
+/* 小按钮：淡化，只在 hover 时明显 */
+.pbtns{display:flex;gap:6px;flex-shrink:0;opacity:.45;transition:opacity .2s ease}
+.pcard:hover .pbtns{opacity:1}
 .pbtn{
-  width:30px;height:30px;border-radius:50%;
-  border:1px solid var(--line);background:var(--bg);
+  width:28px;height:28px;border-radius:50%;
+  border:1px solid var(--line);background:transparent;
   display:flex;align-items:center;justify-content:center;
-  cursor:pointer;font-size:14px;color:var(--muted);
+  cursor:pointer;font-size:13px;color:var(--muted);
   text-decoration:none;padding:0;
 }
 .pbtn:hover{border-color:var(--accent);color:var(--accent)}
