@@ -162,6 +162,129 @@ footer{
 }
 
 /* =========================================================
+   首页 · 个人主页布局（编辑型 · 宽版心 + 标签栏分区）
+   ========================================================= */
+
+.wrap--home{max-width:1120px}
+
+/* —— 顶栏 —— */
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:calc(var(--step) * 3);
+  margin-bottom:calc(var(--step) * 10);
+}
+.brand{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:16px;color:var(--ink);border-bottom:none;letter-spacing:.02em;
+}
+.brand img{width:32px;height:32px;display:block}
+.brand:hover{color:var(--accent);border-bottom:none}
+.topbar nav{margin-top:0}
+
+/* —— Hero —— */
+.hero{padding:calc(var(--step) * 4) 0 calc(var(--step) * 10)}
+.hero .eyebrow{
+  color:var(--muted);font-size:13px;letter-spacing:.12em;
+  margin:0 0 calc(var(--step) * 4);
+}
+.hero h1{
+  font-size:38px;font-weight:600;line-height:1.5;letter-spacing:-.01em;
+  margin:0;max-width:30ch;
+}
+.hero-lede{
+  font-size:17px;line-height:1.9;margin:calc(var(--step) * 4) 0 0;
+  color:var(--ink);max-width:44ch;
+}
+.hero-cta{margin:calc(var(--step) * 5) 0 0;display:flex;flex-wrap:wrap;gap:calc(var(--step) * 3)}
+.btn{
+  font-size:15px;line-height:1.6;
+  border-bottom:1px solid var(--line);
+  padding-bottom:2px;
+}
+.btn--primary{color:var(--accent);border-bottom-color:var(--accent)}
+.btn:hover{border-bottom-color:var(--accent)}
+
+/* —— 分区：左侧标签 + 右侧内容 —— */
+.sec{
+  display:grid;grid-template-columns:150px 1fr;
+  gap:calc(var(--step) * 5);
+  padding:calc(var(--step) * 8) 0;
+  border-top:1px solid var(--line);
+}
+.sec .label{
+  color:var(--muted);font-size:13px;letter-spacing:.12em;
+  font-weight:400;margin:0;padding-top:6px;
+}
+.sec-body{max-width:760px}
+
+/* Now */
+.nowlist{list-style:none;padding:0;margin:0}
+.nowlist li{
+  padding:calc(var(--step) * 1.5) 0;
+  font-size:16px;line-height:1.9;
+}
+.nowlist .k{
+  color:var(--ink);margin-right:calc(var(--step) * 2);
+}
+
+/* Work */
+.worklist{list-style:none;padding:0;margin:0}
+.worklist > li{
+  display:grid;grid-template-columns:44px 1fr auto;
+  gap:calc(var(--step) * 3);align-items:baseline;
+  padding:calc(var(--step) * 3) 0;
+  border-top:1px solid var(--line);
+}
+.worklist > li:last-child{border-bottom:1px solid var(--line)}
+.worklist .idx{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+.worklist h3{font-size:19px;font-weight:600;margin:0;line-height:1.5}
+.worklist h3 a{color:var(--ink);border-bottom:none}
+.worklist h3 a:hover{color:var(--accent)}
+.worklist .desc{margin:var(--step) 0 0;font-size:15px;color:var(--muted);line-height:1.8}
+.worklist .kind{color:var(--muted);font-size:13px;white-space:nowrap}
+
+/* About / 正文段落在首页 */
+.prose{margin:0 0 calc(var(--step) * 3);font-size:16px;line-height:1.9}
+.more{margin:calc(var(--step) * 3) 0 0;font-size:15px}
+.more a{color:var(--accent)}
+
+/* Elsewhere */
+.elsewhere{list-style:none;padding:0;margin:0}
+.elsewhere li{
+  padding:var(--step) 0;font-size:15px;
+  display:flex;gap:calc(var(--step) * 2);align-items:baseline;flex-wrap:wrap;
+}
+.elsewhere .note{color:var(--muted);font-size:13px}
+
+/* 页脚 */
+.foot-line{margin:0 0 var(--step)}
+footer p{margin:0}
+
+/* —— 首页移动端：不是把桌面缩小，是重新排 —— */
+@media (max-width:760px){
+  .wrap--home{padding-top:40px}
+  .topbar{flex-direction:column;align-items:flex-start;gap:calc(var(--step) * 2)}
+  .topbar nav{gap:calc(var(--step) * 2.5)}
+  .hero{padding:calc(var(--step) * 2) 0 calc(var(--step) * 6)}
+  .hero h1{font-size:27px;line-height:1.5;max-width:none}
+  .hero-lede{font-size:16px}
+  .sec{grid-template-columns:1fr;gap:calc(var(--step) * 2);padding:calc(var(--step) * 6) 0}
+  .sec .label{padding-top:0}
+  .worklist > li{grid-template-columns:28px 1fr;gap:calc(var(--step) * 2)}
+  .worklist .kind{grid-column:2;font-size:12px}
+  .nowlist li{padding:calc(var(--step) * 1.5) 0;font-size:15px}
+}
+
+/* 入场：只给 Hero 一点点，其余静态 */
+@media (prefers-reduced-motion: no-preference){
+  .hero{animation:rise .7s cubic-bezier(.2,.6,.2,1) both}
+}
+@keyframes rise{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:none}
+}
+
+/* =========================================================
    商店页 · 画廊式装裱网格
    ========================================================= */
 
