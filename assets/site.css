@@ -192,8 +192,8 @@ footer{
   margin:0;max-width:30ch;
 }
 .hero-lede{
-  font-size:17px;line-height:1.9;margin:calc(var(--step) * 4) 0 0;
-  color:var(--ink);max-width:44ch;
+  font-size:17px;line-height:2;margin:calc(var(--step) * 4) 0 0;
+  color:var(--ink);max-width:none;
 }
 .hero-cta{margin:calc(var(--step) * 5) 0 0;display:flex;flex-wrap:wrap;gap:calc(var(--step) * 3)}
 .btn{
@@ -256,6 +256,49 @@ footer{
 }
 .elsewhere .note{color:var(--muted);font-size:13px}
 
+/* —— 信任清单 —— */
+.trustlist{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:calc(var(--step) * 5) calc(var(--step) * 6)}
+.trustlist li{padding-top:calc(var(--step) * 3);border-top:1px solid var(--line)}
+.trustlist h3{font-size:16px;font-weight:600;margin:0}
+.trustlist p{margin:var(--step) 0 0;font-size:15px;color:var(--muted);line-height:1.8}
+
+/* —— 免费价值 / 订阅区 —— */
+.panel{
+  background:var(--surface);border-radius:3px;
+  padding:calc(var(--step) * 5) calc(var(--step) * 5) calc(var(--step) * 4);
+  max-width:680px;
+}
+.panel-kicker{color:var(--muted);font-size:13px;letter-spacing:.12em;margin:0 0 var(--step)}
+.panel h3{font-size:24px;font-weight:600;margin:0;line-height:1.4}
+.panel-desc{margin:var(--step) 0 0;font-size:16px;color:var(--ink);line-height:1.85}
+.ticklist{margin:calc(var(--step) * 3) 0 0;padding:0;list-style:none}
+.ticklist li{
+  position:relative;padding-left:calc(var(--step) * 3);
+  font-size:15px;line-height:1.9;color:var(--muted);
+}
+.ticklist li::before{
+  content:"—";position:absolute;left:0;color:var(--accent);
+}
+.panel-note{color:var(--muted);font-size:13px;margin:calc(var(--step) * 3) 0 0}
+
+/* —— 产品：每个只回答四件事 —— */
+.products{display:grid;grid-template-columns:1fr 1fr;gap:calc(var(--step) * 5)}
+.p-card{
+  border:1px solid var(--line);border-radius:3px;
+  padding:calc(var(--step) * 4) calc(var(--step) * 4) calc(var(--step) * 3);
+  display:flex;flex-direction:column;
+}
+.p-kind{color:var(--muted);font-size:13px;letter-spacing:.1em;margin:0 0 var(--step)}
+.p-card h3{font-size:19px;font-weight:600;margin:0;line-height:1.5}
+.p-facts{margin:calc(var(--step) * 3) 0 0}
+.p-facts dt{color:var(--muted);font-size:13px;letter-spacing:.08em;margin-top:calc(var(--step) * 2)}
+.p-facts dd{margin:2px 0 0;font-size:15px;line-height:1.85}
+.p-next{
+  margin:calc(var(--step) * 4) 0 0;padding-top:calc(var(--step) * 2);
+  border-top:1px solid var(--line);font-size:14px;color:var(--muted);
+}
+.p-next a{color:var(--accent)}
+
 /* 页脚 */
 .foot-line{margin:0 0 var(--step)}
 footer p{margin:0}
@@ -273,6 +316,11 @@ footer p{margin:0}
   .worklist > li{grid-template-columns:28px 1fr;gap:calc(var(--step) * 2)}
   .worklist .kind{grid-column:2;font-size:12px}
   .nowlist li{padding:calc(var(--step) * 1.5) 0;font-size:15px}
+  .trustlist{grid-template-columns:1fr;gap:calc(var(--step) * 4)}
+  .products{grid-template-columns:1fr;gap:calc(var(--step) * 4)}
+  .panel{padding:calc(var(--step) * 4) calc(var(--step) * 3)}
+  .panel h3{font-size:21px}
+  .p-card{padding:calc(var(--step) * 3)}
 }
 
 /* 入场：只给 Hero 一点点，其余静态 */
